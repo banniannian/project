@@ -1,0 +1,213 @@
+
+<link href="/assets/home/css/WeUI/weui.min.css" rel="stylesheet" />
+<link href="/assets/home/css/mui/mui.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        margin: 0 auto;
+        min-width: 320px;
+        max-width: 750px;
+        padding: 0;
+        font-family: 'Microsoft YaHei';
+        background-color: rgb(245, 245, 245);
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .weui-article {
+        padding: 5px 15px;
+    }
+
+    small {
+        color: #0b720b;
+    }
+
+    h2 {
+        color: #0b720b;
+    }
+
+    /* 地图 */
+    .contact_img {
+        width: 100%;
+        height: 18rem;
+        margin-bottom: 4rem;
+    }
+
+    .contact_img #container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+
+    /* 轮播图样式 */
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+    }
+    .swiper-container {
+        /* position: relative; */
+        width: 100%;
+        /* height: 100%; */
+    }
+
+    .swiper-container .swiper-pagination {
+        text-align: left;
+        /* bottom: 23px; */
+        padding: 5px;
+        bottom: 31px;
+        width: 100%;
+    }
+
+    .swiper-pagination-bullet {
+        background: #fff;
+    }
+
+    .swiper-slide {
+        padding: 5px;
+        padding-right: 10px !important;
+        /* text-align: center; */
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.432);
+        color: #FFF;
+        /* height: 0; */
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: end;
+        justify-content: end;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: end;
+        align-items: end;
+    }
+
+    .pos {
+        top: -31px;
+    }
+
+    .swp-bag {
+        background-color: #FFF;
+    }
+</style>
+
+<body>
+    <header class="mui-bar mui-bar-nav" style="position: sticky;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: gray;" href="./personal-center.html"></a>
+        <h1 class="mui-title">联系我们</h1>
+    </header>
+
+
+    <div class="swiper-container swp-bag">
+        <div class="swiper-wrapper ">
+            {foreach $toplist as $item}
+                <img src="{$item.thumbs_text}" onclick="window.open(`{:url('/home/subject/subject', ['subid' => $item['id']])}`)" style="cursor:pointer;" />
+            {/foreach}
+        </div>
+
+        <div class="swiper-wrapper pos">
+            {foreach $toplist as $item}
+                <div class="swiper-slide ">{$item.title}</div>
+            {/foreach}
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- <div class="mui-content">
+        <div id="slider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                {foreach $toplist as $item}
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="{$item.thumbs_text}" />
+                        <p class="mui-slider-title">{$item.title}</p>
+                    </a>
+                </div>
+                {/foreach}
+            </div>
+
+            <div class="mui-slider-indicator mui-text-right">
+                {foreach $toplist as $item}
+                    <div class="mui-indicator"></div>
+                {/foreach}
+            </div>
+        </div>
+    </div> -->
+
+    <article class="weui-article" style="text-align: center;
+    background-color: white;">
+        <h1>联&nbsp;系&nbsp;我&nbsp;们<br /><small>Contact Us</small></h1>
+        <section >
+            <h2 class="title" >联系方式</h2>
+            <section>
+                <h3>市场销售&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:185-1242-1111" style="color: green;">185-1242-1111</a></h3>
+                <h3>技术支持&nbsp;&nbsp;&nbsp;&nbsp;<a href="139-1234-5678" style="color: green;">139-1234-5678</a></h3>
+                <h3>市场销售&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:178-1422-3211" style="color: green;">178-1422-3211</a></h3>
+                <h3>市场销售&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:152-2233-6555" style="color: green;">152-2233-6555</a></h3>
+            </section>
+            <h2 class="title">地址</h2>
+            <section>
+                <h3>广东省广州市海珠区</h3>
+            </section>
+            
+            <div class="contact_img">
+                <div id="container">
+
+                </div>
+            </div>
+        </section>
+    </article>
+</body>
+{include file="common/footer"}
+
+<script src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=GDCSiq1eO1qBsSjfhnfqD2ArBDKxFBFU"></script>
+
+<script>
+  // mui.init({
+  //     swipeBack: true //启用右滑关闭功能
+  // });
+  var slider = mui("#slider");
+  slider.slider({
+    interval: 5000
+  });
+
+  // swiper
+  var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true
+  });
+
+  var map = new BMapGL.Map('container'); // 创建Map实例
+  map.centerAndZoom(new BMapGL.Point(113.32119, 23.10252), 19); // 初始化地图,设置中心点坐标和地图级别
+  map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+  var cityControl = new BMapGL.CityListControl({
+    // 控件的停靠位置（可选，默认左上角）
+    anchor: BMAP_ANCHOR_TOP_LEFT,
+    // 控件基于停靠位置的偏移量（可选）
+    offset: new BMapGL.Size(10, 5)
+  });
+
+  // 将控件添加到地图上
+  map.addControl(cityControl);
+</script>

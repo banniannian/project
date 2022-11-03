@@ -1,0 +1,149 @@
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=-lLPf-7PRTfxPG30hKg4iI9dJlHf8qwpbWw742nEQslGv7QewEYcKNxhYNhVbSh7oKFgO4ibEOXzsvMyMYXzsxSqrxkPxLh5qz9xtw0ZVgQ" charset="UTF-8"></script>
+
+<link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9kY2xvdWQuaW8vaGVsbG9tdWkvZXhhbXBsZXMvZWNoYXJ0cy5odG1s"/>
+
+<style>
+  body {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .chart {
+    height: 200px;
+    margin: 0px;
+    padding: 0px;
+  }
+  h5 {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  h5:first-child {
+    margin-top: 15px;
+  }
+
+  .mui-plus.mui-android header.mui-bar{
+    display: none;
+  }
+
+  .mui-plus.mui-android .mui-bar-nav~.mui-content{
+    padding: 0;
+  }
+</style>
+
+<body>
+  <header class="mui-bar mui-bar-nav" style="position: sticky;">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: gray;" href="./personal-center.html"></a>
+      <h1 class="mui-title">数据分析</h1>
+  </header>
+
+  <div class="mui-content">
+    <div class="mui-content-padded">
+      <div class="chart" id="pieChart"></div>
+      
+    </div>
+  </div>
+
+  <!-- <div id="main" style="width: 600px;height:400px;"></div> -->
+  {include file="common/footer"}
+
+</body>
+
+<script src="/assets/home/js/mui.min.js"></script>
+<script src="/assets/home/js/echarts-all.js"></script>
+<!-- <script src="/assets/home/js/echarts.min.js"></script> -->
+<script>
+
+// var myChart = echarts.init(document.getElementById('main'));
+// option = {
+//   tooltip: {
+//     trigger: 'item'
+//   },
+//   legend: {
+//     top: '5%',
+//     left: 'center'
+//   },
+//   series: [
+//     {
+//       name: 'Access From',
+//       type: 'pie',
+//       radius: ['40%', '70%'],
+//       avoidLabelOverlap: false,
+//       itemStyle: {
+//         borderRadius: 10,
+//         borderColor: '#fff',
+//         borderWidth: 2
+//       },
+//       label: {
+//         show: false,
+//         position: 'center'
+//       },
+//       emphasis: {
+//         label: {
+//           show: true,
+//           fontSize: '40',
+//           fontWeight: 'bold'
+//         }
+//       },
+//       labelLine: {
+//         show: false
+//       },
+//       data: [
+//         { value: 1048, name: 'Search Engine' },
+//         { value: 735, name: 'Direct' },
+//         { value: 580, name: 'Email' },
+//         { value: 484, name: 'Union Ads' },
+//         { value: 300, name: 'Video Ads' }
+//       ]
+//     }
+//   ]
+// };
+// myChart.setOption(option);
+
+  var getOption = function(chartType) {
+    var chartOption = chartType == 'pie' ? {
+      calculable: false,
+      series: [{
+        name: '消费情况',
+        type: 'pie',
+        radius: '65%',
+        center: ['50%', '50%'],
+        data: [{
+          value: `{$User_data['money']}`,
+          name: `剩余金额: {$User_data['money']}`
+        }, {
+          value: `{$User_data['mins']}`,
+          name: `最大消费 : {$User_data['mins']}`
+        }, {
+          value: `{$User_data['maxs']}`,
+          name: `最小消费 : {$User_data['maxs']}`
+        }, {
+          value: `{$User_data['avgs']}`,
+          name: `平均消费 : {$User_data['avgs']}`
+        }, {
+          value: `{$User_data['consume']}`,
+          name: `总消费 : {$User_data['consume']}`
+        }]
+      }]
+    } : {value: "图表加载有误, 重新刷新页面"};
+    return chartOption;
+  };
+
+  var byId = function(id) {
+    return document.getElementById(id);
+  };
+
+  // var barChart = echarts.init(byId('barChart'));
+  // barChart.setOption(getOption('bar'));
+
+  // var lineChart = echarts.init(byId('lineChart'));
+  // lineChart.setOption(getOption('line'));
+
+  var pieChart = echarts.init(byId('pieChart'));
+  pieChart.setOption(getOption('pie'));
+  byId("echarts").addEventListener('tap',function(){
+    var url = this.getAttribute('data-url');
+    plus.runtime.openURL(url);
+  },false);
+</script>
+

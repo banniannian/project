@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- 导入公共的meta -->
+    {include file='common/meta'}
+
+    <style>
+         * { touch-action: pan-y; } 
+        body {
+            font-family: 'Microsoft YaHei';
+        }
+
+        p {
+            font-size: 4.5vw;
+        }
+        
+        h5 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-indent: 12px;
+        }
+
+        .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+            font-size: 15px;
+            margin-top: 8px;
+            color: #333;
+        }
+        .mui-bar-nav ~ .mui-content {
+             padding-top: 0; 
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- 微信平台视频付费系统 -->
+    <header class="mui-bar mui-bar-nav" style="position:sticky;">
+        <h1 class="mui-title">微信平台视频付费系统</h1>
+        <!-- <a href="./html/personal-center.html" class="mui-pull-right"><img style="width:10vw; height:10vw; margin-right:-1vw;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEAklEQVR4Xu2agZENQRCG/4sAESACRIAIEAEiQASIABEgAkSACBABIkAE1Kemq8a73bc7O3+ve/V2qq7e3t1ub/fff/d097wTHfk6OXL7tQGwMeDIEdhC4MgJsCXB/xEC5yVdkXRVEtesn5I+S/pSrlcj5loAYOhdSbcl3Ziw7oOkt5JerIHCGgBg+BNJlyqDPhaP43kWAMGI69U938pzrzOByAQAo14Wr2MDRj+XhIfD8F3beAaGABhhwoIN97NCIwsADHlfvPpL0kNJrxo9ea8Adq6w5WYGCBkA1MaT1Ih76LxkERYABxtIknYQMgCA9ngP46HzGN3nAgKgGH+xgEE42JYbAAyG+tCeaxR3LJhA7iAcYAHXluUG4FOJ+0clfi1KFiEkxscF1GsuwU4AiPU3kr7vbHkuXZFDLiEU7pTdoVu2EwCSFXt+hvfDUHaTZ5KoDcgz3csJwI9S0FzuyPpTBpELCDMS64Wpm+f83wUAmRoASH5R3895/5J7MJ5kCAC9O4ytG4zsT7U3VesvMbp+hh2AktmyG7gYsAFQ9v+NASuEQNQa1ALdhZYrBIjR3yVQnTKH8oX1PU5l8QZNi61IGbA+ii36DLbE7uUEgF7/wUSRwj0USxRNFDNBYYzh7xQ3/J2CZ2hFsfW0zAzOFAB1kUJ8DrXAAdI+xRmFDQHAROlredAS/8hyMgB54SGmOITC0AIoDOQzpj5QGjYA0Fhio88gBGxlcAYAeAkDqNTo21unQGPMIDSYM1Bp8o7uCjBe5GYAckNZrh0guOX9A3IGADUIvU0LfQVxz6cDzFMMywKAFxHnKM4go2eRF0iofNpXJgB2ZTMEbgBkoLpHJm1snAmSzeO0CIrzE2eENFWrrGwGxJkgmby1dGU7jYrRtu3topoFAJ5lgrs7t6PgiaOx8Do6BRviaCwKpNAXICh/lx6wjLLJDQAGMLSsDX9XJritRREyqPxuVdojg6GrjRFOAFCWai1mgtHU9CqLvGiiwAJ51ASU293LBQBejwaGBIb33HQlTGBAHKEDCmzoWg4A4iwQRTLPBMLQOBvgdwDpOivsBSCMd58FTnm1PivsAqEHgOjt1zY+wKlBGJshTAG5eB5Qd2i24cSktqdviCEM/1nULC1hAMmIyWxah9YIRDiD3WFsEmWtA2Iyw/7O1ncWFlsi9cK+SdSgnq0MqL8AYZ3MdKIIG9l2m79A0QpA5hcgOjH4O3do/gJFKwDWQ4leiweeb9ZvA6DRC80IN8rvvb1Zv6UM6J3z9Ro69nzoNduu2TeWNwbCWQa45M62a/aNRTP2/dbJjsuouXKYJM1ulVsBmKvEwdy3AXAwrkpSdGNAErAHI3ZjwMG4KknRo2fAHyptzUEKi1ngAAAAAElFTkSuQmCC"/></a> -->
+    </header>
+
+    <div class="mui-content">
+        <div id="slider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="/assets/home/images/video5.png">
+                        <p class="mui-slider-title">Javascript从零开始</p>
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="/assets/home/images/video6.png">
+                        <p class="mui-slider-title">Vue商城实战</p>
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="/assets/home/images/video5.png">
+                        <p class="mui-slider-title">Javascript从零开始</p>
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="/assets/home/images/video6.png">
+                        <p class="mui-slider-title">Vue商城实战</p>
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="/assets/home/images/video5.png">
+                        <p class="mui-slider-title">Javascript从零开始</p>
+                    </a>
+                </div>
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="/assets/home/images/video6.png">
+                        <p class="mui-slider-title">Vue商城实战</p>
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator mui-text-right">
+                <div class="mui-indicator mui-active"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-search-bar" id="searchBar">
+        <form class="weui-search-bar__form" style="height: 30px;" onclick="location.href = './html/search.html' ">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required />
+                <a  class="weui-icon-clear" id="searchClear"></a>
+            </div>
+            <label class="weui-search-bar__label" id="searchText">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+    <div class="mui-content" style="background-color:#fff">
+        <h5 style="background-color:#efeff4">初级课程<a href="./html/Video-list.html" style="float:right; margin-right:10px;">更多</a></h5>
+        <ul class="mui-table-view mui-grid-view">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">Java基础视频</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">.Net基础视频</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">JavaScript基础课程</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">Python基础视频</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">大数据基础</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">零基础学PHP</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">三天学会做产品</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">软件测试基础教学</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="mui-content" style="background-color:#fff">
+        <h5 style="background-color:#efeff4">中级课程<a href="./html/Video-list.html" style="float:right; margin-right:10px;">更多</a></h5>
+        <ul class="mui-table-view mui-grid-view">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">Java进阶</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">Java框架</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">AngularJS教程</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">vue.js教程</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="mui-content" style="background-color:#fff">
+        <h5 style="background-color:#efeff4">高级课程<a href="./html/Video-list.html" style="float:right; margin-right:10px;">更多</a></h5>
+        <ul class="mui-table-view mui-grid-view">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">多线程</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">Linux教学</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video4.png">
+                    <div class="mui-media-body">Oracle教程</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="./html/details.html">
+                    <img class="mui-media-object" src="/assets/home/images/video3.png">
+                    <div class="mui-media-body">Python爬虫教程</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <br />
+    <div class="weui-footer">
+        <p class="weui-footer__text">没有更多了</p>
+    </div>
+
+    <!-- 引入底部导航栏 -->
+    {include file='common/footer'/}
+
+    <!-- 引入公共js -->
+    {include file='common/script'/}
+
+    <script>
+        var slider = mui("#slider");
+        mui.init({
+            swipeBack: true //启用右滑关闭功能
+        });
+        slider.slider({
+            interval: 2000
+        });
+    </script>
+    
+    <!-- <script>
+        function refreshPage(the_duration) {
+            setTimeout("self.location.reload();", the_duration * 1000);
+            
+        }
+        self.onload = function() {
+            refreshPage(1); //里面的1代表1秒,未刷新的间隔时间,你可以改成你想要的 
+    
+        };
+    </script> -->
+    
+</body>
+</html>

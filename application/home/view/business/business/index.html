@@ -1,0 +1,115 @@
+
+<style>
+    body {
+        min-width: 320px;
+        max-width: 750px;
+        margin: 0 auto;
+        font-family: 'Microsoft YaHei';
+    }
+
+    p {
+        font-size: 4.5vw;
+        margin-bottom: 0;
+        margin-top: -20px;
+    }
+
+    .uPic {
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 170px;
+        max-height: 170px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    
+    .top_img {
+        min-width: 355px;
+    }
+
+    .uBalance {
+        font-size: 2em;
+    }
+</style>
+
+<body>
+    <!-- <header class="mui-bar mui-bar-nav" style="position: sticky;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: gray;" href="../index.html"></a>
+        <h1 class="mui-title">个人中心</h1>
+    </header> -->
+
+    <!-- 头部 -->
+    <div class="top_div">
+        <img src="/assets/home/images/bac.jpg" class="top_img">
+        <div class="userInfo">
+            <a href="javascript:;">
+                <!-- 默认为默认头像 -->
+                <img class="uPic" src="{$LoginAuth.avatar_text}" />
+                <br/>
+            </a>
+            <br/>
+            
+            <!-- <p class="uBalance" style="color: rgb(74, 70, 66); ">{$LoginAuth.mobile}</p> -->
+            <p class="uBalance" style="color: rgb(74, 70, 66); ">
+                <!-- 有头像就显示数据库的头像，没有就使用默认头像 -->
+                {if condition="$LoginAuth.nickname"}
+                    {$LoginAuth.nickname}
+                {else /}
+                    {$LoginAuth.mobile_text}
+                {/if}
+            </p>
+        </div>
+    </div>
+    
+    <!-- 菜单 -->
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right" href="{:url('/home/business/business/profile')}">
+                我的资料
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a href="{:url('/home/business/order/index')}" class="mui-navigate-right">
+                我的课程
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a href="{:url('/home/business/business/pandas')}" class="mui-navigate-right">
+                数据分析
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                充值
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a href="{:url('/home/business/business/contact')}"  class="mui-navigate-right">
+                联系我们
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a id="logout" class="mui-navigate-right">
+                退出登录
+            </a>
+        </li>
+    </ul>
+
+    <!-- 底部 -->
+    {include file="common/footer"}
+
+    <!-- 引入js，在layout.html中 -->
+
+    <script>
+        // 退出登录
+        $('#logout').click(function() {
+            // 使用mui框架中的确认对话框
+			mui.confirm('是否确认退出登录', '退出登录', ['退出', '取消'], function(e) {
+                if(e.index == 0) {
+                    // js跳转
+                    location.href = `/home/index/logout`
+                    return false
+                }
+			})
+        })
+    </script>
+</body>

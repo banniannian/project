@@ -1,0 +1,131 @@
+
+<style>
+  body {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  /* 搜索框调整 */
+  .mui-search input[type=search]{
+      margin-bottom:0px;
+  }
+
+  .mui-search:before{
+      top:68%;
+  }
+
+  /* 课程列表 */
+  /* .mui-table-view .mui-table-view-cell a {
+    display: flex;
+  } */
+
+  .mui-table-view .mui-table-view-cell .thumb {
+    flex-shrink: 0;
+    width:35%;
+    margin-right:2%;
+  }
+
+  .mui-table-view .mui-table-view-cell .mui-media-object {
+    width:100%;
+    height:100%;
+    max-width:100%;
+  }
+
+  /* 右边内容 */
+  .mui-media-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+  .mui-media-body .title{
+    color:#000;
+    width:100%;
+    font-weight:bold;
+    font-size:1.2em;
+  }
+
+  .mui-media-body .content{
+    width:100%;
+  }
+
+  .mui-media-body .info{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+
+  /* 点赞图标 */
+  .mui-media-body .info .like{
+    color:skyblue;
+    font-weight: bold;
+  }
+
+  /* 价格图标 */
+  .mui-media-body .info .price{
+    color:red;
+    font-weight: bold;
+    margin-top:3px;
+  }
+
+  /* 没有更多数据了 */
+  .nomore{
+    width: 100%;
+    text-align: center;
+    font-size:1.5em;
+    font-weight: bold;
+    margin:2em 0px;
+  }
+
+  .Km {
+    margin-bottom: 10px;
+  }
+</style>
+
+<body>
+  <form method="get" >
+    <!-- 搜索框 -->
+    <div class="mui-input-row mui-search">
+      <input type="search" name="keywords" required class="mui-input-clear" placeholder="搜索" autocomplete required />
+    </div>
+
+    <!-- 课程列表 -->
+    {if condition = "$sublist"}
+      <ul class="mui-table-view">
+        {foreach $sublist as $item}
+        <li class="mui-table-view-cell mui-media">
+          <a href="{:url('/home/subject/subject', ['subid' => $item['id']])}">
+            <div class="thumb">
+              <img class="mui-media-object mui-pull-left" src="{$item.thumbs_text}">
+            </div>
+            <div class="mui-media-body">
+              <h4 class="title Km">{$item.title}</h4>
+              <p class='content Km'>{$item.content}</p>
+              <div class="info Km" style="margin-top: 10px;">
+                <span class="like">
+                  <span class="mui-icon mui-icon-starhalf"></span>
+                  点赞: {$item.likes_text}
+                </span>
+                <span class="price">￥: {$item.price}</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        {/foreach}
+      </ul>
+    {else /}
+      <div class="nomore">
+        没有更多内容了
+      </div>
+    {/if}
+  </form>
+
+  {include file="common/footer" /}
+</body>

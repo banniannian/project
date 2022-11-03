@@ -1,0 +1,195 @@
+﻿
+<style>
+    * {
+        touch-action: pan-y;
+    }
+
+    body {
+        font-family: 'Microsoft YaHei';
+        min-width: 320px;
+        max-width: 750px;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    p {
+        font-size: 4.5vw;
+    }
+    
+    h5 {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-indent: 12px;
+    }
+
+    .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+        font-size: 15px;
+        margin-top: 8px;
+        color: #333;
+    }
+
+    .mui-bar-nav ~ .mui-content {
+        padding-top: 0; 
+    }
+
+    .mui-slider-indicator .mui-indicator:first-child {
+        background:#fff;
+    }
+
+    .swiper-wrapper img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 轮播图样式 */
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+    }
+    .swiper-container {
+        width: 100%;
+    }
+
+    .swiper-container .swiper-pagination {
+        text-align: left;
+        padding: 5px;
+        bottom: 31px;
+        width: 100%;
+    }
+
+    .swiper-pagination-bullet {
+        background: #fff;
+    }
+
+    .swiper-slide {
+        padding: 5px;
+        padding-right: 10px !important;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.432);
+        color: #FFF;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: end;
+        justify-content: end;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: end;
+        align-items: end;
+    }
+
+    .pos {
+        top: -31px;
+    }
+
+    /* .swp-bag {
+        background-color: #FFF;
+    } */
+</style>
+
+<body>
+    <!-- 微信平台视频付费系统 -->
+    <!-- <header class="mui-bar mui-bar-nav" style="position:sticky;"> -->
+        <!-- <h1 class="mui-title">微信平台视频付费系统</h1> -->
+        <!-- <a href="./html/personal-center.html" class="mui-pull-right"><img style="width:10vw; height:10vw; margin-right:-1vw;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEAklEQVR4Xu2agZENQRCG/4sAESACRIAIEAEiQASIABEgAkSACBABIkAE1Kemq8a73bc7O3+ve/V2qq7e3t1ub/fff/d097wTHfk6OXL7tQGwMeDIEdhC4MgJsCXB/xEC5yVdkXRVEtesn5I+S/pSrlcj5loAYOhdSbcl3Ziw7oOkt5JerIHCGgBg+BNJlyqDPhaP43kWAMGI69U938pzrzOByAQAo14Wr2MDRj+XhIfD8F3beAaGABhhwoIN97NCIwsADHlfvPpL0kNJrxo9ea8Adq6w5WYGCBkA1MaT1Ih76LxkERYABxtIknYQMgCA9ngP46HzGN3nAgKgGH+xgEE42JYbAAyG+tCeaxR3LJhA7iAcYAHXluUG4FOJ+0clfi1KFiEkxscF1GsuwU4AiPU3kr7vbHkuXZFDLiEU7pTdoVu2EwCSFXt+hvfDUHaTZ5KoDcgz3csJwI9S0FzuyPpTBpELCDMS64Wpm+f83wUAmRoASH5R3895/5J7MJ5kCAC9O4ytG4zsT7U3VesvMbp+hh2AktmyG7gYsAFQ9v+NASuEQNQa1ALdhZYrBIjR3yVQnTKH8oX1PU5l8QZNi61IGbA+ii36DLbE7uUEgF7/wUSRwj0USxRNFDNBYYzh7xQ3/J2CZ2hFsfW0zAzOFAB1kUJ8DrXAAdI+xRmFDQHAROlredAS/8hyMgB54SGmOITC0AIoDOQzpj5QGjYA0Fhio88gBGxlcAYAeAkDqNTo21unQGPMIDSYM1Bp8o7uCjBe5GYAckNZrh0guOX9A3IGADUIvU0LfQVxz6cDzFMMywKAFxHnKM4go2eRF0iofNpXJgB2ZTMEbgBkoLpHJm1snAmSzeO0CIrzE2eENFWrrGwGxJkgmby1dGU7jYrRtu3topoFAJ5lgrs7t6PgiaOx8Do6BRviaCwKpNAXICh/lx6wjLLJDQAGMLSsDX9XJritRREyqPxuVdojg6GrjRFOAFCWai1mgtHU9CqLvGiiwAJ51ASU293LBQBejwaGBIb33HQlTGBAHKEDCmzoWg4A4iwQRTLPBMLQOBvgdwDpOivsBSCMd58FTnm1PivsAqEHgOjt1zY+wKlBGJshTAG5eB5Qd2i24cSktqdviCEM/1nULC1hAMmIyWxah9YIRDiD3WFsEmWtA2Iyw/7O1ncWFlsi9cK+SdSgnq0MqL8AYZ3MdKIIG9l2m79A0QpA5hcgOjH4O3do/gJFKwDWQ4leiweeb9ZvA6DRC80IN8rvvb1Zv6UM6J3z9Ro69nzoNduu2TeWNwbCWQa45M62a/aNRTP2/dbJjsuouXKYJM1ulVsBmKvEwdy3AXAwrkpSdGNAErAHI3ZjwMG4KknRo2fAHyptzUEKi1ngAAAAAElFTkSuQmCC"/></a> -->
+    <!-- </header> -->
+
+    <div class="swiper-container swp-bag">
+        <div class="swiper-wrapper ">
+            {foreach $toplist as $item}
+                <img src="{$item.thumbs_text}" onclick="window.open(`{:url('/home/subject/subject', ['subid' => $item['id']])}`)" style="cursor:pointer;" />
+            {/foreach}
+        </div>
+
+        <div class="swiper-wrapper pos">
+            {foreach $toplist as $item}
+                <div class="swiper-slide ">{$item.title}</div>
+            {/foreach}
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+
+    <!-- mui框架搜索框 -->
+    <form method="get" action="{:url('home/subject/search')}">
+        <div class="mui-input-row mui-search">
+            <input type="search" name="keywords" class="mui-input-clear" placeholder="搜索" autocomplete  />
+        </div>
+    </form>
+
+    <!-- 课程列表 -->
+    {foreach $catelist as $item}
+    <div class="mui-content" style="background-color:#fff">
+        <!-- 分类名称 -->
+        <h5 style="background-color:#efeff4">
+            {$item.name}
+            <a href="{:url('/home/subject/search')}" style="float:right; margin-right:10px;">更多</a>
+        </h5>
+
+        <!-- 课程列表 -->
+        <ul class="mui-table-view mui-grid-view">
+            {foreach $item.subject as $subject}
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="{:url('/home/subject/subject', ['subid' => $subject['id']])}">
+                    <img class="mui-media-object" src="{$subject.thumbs_text}">
+                    <div class="mui-media-body">{$subject.title}</div>
+                </a>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    {/foreach}
+
+    <br />
+    <br />
+    <br />
+    <!-- <div class="weui-footer">
+        <p class="weui-footer__text">没有更多了</p>
+    </div> -->
+
+    <!-- 引入底部导航栏 -->
+    {include file='common/footer'/}
+
+    <!-- 引入js，在layout.html中 -->
+
+    <!-- <script>
+        function refreshPage(the_duration) {
+            setTimeout("self.location.reload();", the_duration * 1000);
+
+        }
+        self.onload = function() {
+            refreshPage(1); //里面的1代表1秒,未刷新的间隔时间,你可以改成你想要的 
+
+        };
+    </script> -->
+
+<!-- 自动轮播控件 -->
+<script>
+  var slider = mui("#slider");
+  mui.init({
+      swipeBack: true //启用右滑关闭功能
+  });
+  slider.slider({
+      interval: 2000
+  });
+
+
+  var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true
+  });
+</script>
+</body>

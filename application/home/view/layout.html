@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- 导入公共的meta -->
+    {include file="common/meta"/}
+
+    <!-- 引入公共js(放到这上面是因为首页下方有个自动轮播控件要用) -->
+    {include file="common/script"/}
+  </head>
+
+  <!-- 模板布局的天替换常量 -->
+  {__CONTENT__}
+
+
+</html>
+
+<!-- 会自动匹配index后缀文件 -->
+<!-- 登录与注册特殊性可以不用模板，所以在登录和注册要临时关闭模板布局 -->

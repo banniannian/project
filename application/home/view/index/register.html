@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>注册界面</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="/assets/home/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+<!--布局框架-->
+<link rel="stylesheet" type="text/css" href="/assets/home/css/util.css">
+
+<!--主要样式-->
+<link rel="stylesheet" type="text/css" href="/assets/home/css/main.css">
+
+
+</head>
+<style>
+    body {
+        min-width: 320px;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+</style>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('/assets/home/images/back.jpg');">
+            <div class="wrap-login100 p-t-190 p-b-30">
+                <form method="post" class="login100-form validate-form">
+                    <div class="login100-form-avatar">
+                        <img src="/assets/home/images/pexels-spencer-selover-428364.jpg" alt="AVATAR">
+                    </div>
+
+                    <span class="login100-form-title p-t-20 p-b-45">Hello</span>
+
+                    <div class="wrap-input100 validate-input m-b-10">
+                        <input class="input100" type="text" name="mobile" placeholder="手机号" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-10">
+                        <input class="input100" type="password" name="password" placeholder="密码" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-10">
+                        <input class="input100" type="password" name="repass" placeholder="确认密码" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="container-login100-form-btn p-t-10">
+                        <button type="submit" class="login100-form-btn">注 册</button>
+                    </div>
+
+                    <div class="text-center w-full p-t-25 ">
+                        <a href="#" class="txt1" style="color: #fff;text-decoration:none; font-weight: bold;">
+                            </a>
+                    </div>
+
+                    <div class="text-center w-full">
+                        <a class="txt1" href="{:url('home/index/login')}" style="color: rgb(0, 0, 0);text-decoration:none; font-weight: bold;">
+                            已有账号
+                            <i class="fa fa-long-arrow-right"></i>
+                        </a>
+
+                        <br />
+                        <br />
+
+                        <a class="txt1" href="{:url('home/index/index')}"
+                            style="color: rgb(0, 0, 0);text-decoration:none; font-weight: bold;">
+                            返回首页
+                            <i class="fa fa-long-arrow-right"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

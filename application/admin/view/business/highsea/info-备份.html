@@ -1,0 +1,153 @@
+
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-mobile" class="form-control" name="row[mobile]" type="text" value="">
+      </div>
+  </div> -->
+
+  <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2 ">{:__('Nickname')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-nickname" class="form-control" name="row[nickname]" readonly type="text" value="{$uses_info.nickname}">
+      </div>
+  </div>
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Password')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-password" class="form-control" name="row[password]" type="text">
+      </div>
+  </div> -->
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Salt')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-salt" class="form-control" name="row[salt]" type="text">
+      </div>
+  </div> -->
+
+
+
+  <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Avatar')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <div class="input-group">
+              <input id="c-avatar" class="form-control" size="50" name="row[avatar]" type="text" value="{$uses_info.avatar}" style="display: none;">
+              <div class="input-group-addon no-border no-padding">
+                  <!-- 上传按钮 -->
+                  <span>
+                      <button type="button" id="faupload-avatar" class="btn btn-danger faupload"  data-input-id="c-avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-avatar" style="display: none;">
+                          <!-- <i class="fa fa-upload"></i> {:__('Upload')} -->
+                      </button>
+                  </span>
+                  <!-- <span>
+                      <button type="button" id="fachoose-avatar" class="btn btn-primary fachoose"  data-input-id="c-avatar" data-mimetype="image/*" data-multiple="false">
+                      </button>
+                  </span> -->
+              </div>
+              <span class="msg-box n-right" for="c-avatar" ></span>
+          </div>
+          <ul class="row list-inline faupload-preview" id="p-avatar" data-template=""></ul>
+      </div>
+  </div>
+
+
+
+
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Avatar')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <div class="input-group">
+
+
+              <input id="c-avatar" class="form-control" size="50" name="row[avatar]" type="text" value="">
+              <div class="input-group-addon no-border no-padding">
+              </div>
+              <span class="msg-box n-right" for="c-avatar"></span>
+          </div>
+          <ul class="row list-inline faupload-preview" id="p-avatar"></ul>
+      </div>
+  </div> -->
+
+
+
+
+
+
+  <!-- 性别 -->
+  <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Gender')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          {$catelist}
+      </div>
+  </div>
+
+  <!-- 成交状态 -->
+  <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Deal')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          {$deals}
+          <!-- <select  id="c-deal" class="form-control selectpicker" name="row[deal]">
+              {foreach name="dealList" item="vo"}
+                  <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
+              {/foreach}
+          </select> -->
+      </div>
+  </div>
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Sourceid')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-sourceid" min="0" class="form-control" name="row[sourceid]" type="number">
+      </div>
+  </div> -->
+
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Openid')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-openid" class="form-control" name="row[openid]" type="text">
+      </div>
+  </div> -->
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Province')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-province" class="form-control" name="row[province]" type="text">
+      </div>
+  </div> -->
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('City')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <div class='control-relative'><input id="c-city" class="form-control" data-toggle="city-picker" name="row[city]" type="text"></div>
+      </div>
+  </div> -->
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('District')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-district" class="form-control" name="row[district]" type="text">
+      </div>
+  </div> -->
+
+  <!-- <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Adminid')}:</label>
+      <div class="col-xs-12 col-sm-8">
+          <input id="c-adminid" min="0" class="form-control" name="row[adminid]" type="number">
+      </div>
+  </div> -->
+
+  <!-- <div class="form-group layer-footer">
+      <label class="control-label col-xs-12 col-sm-2"></label>
+      <div class="col-xs-12 col-sm-8">
+          <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+          <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+      </div>
+  </div> -->
+</form>
+

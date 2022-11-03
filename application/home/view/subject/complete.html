@@ -1,0 +1,33 @@
+
+<link href="/assets/home/css/WeUI/weui.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        min-width: 320px;
+        max-width: 750px;
+        margin: 0 auto;
+        font-family: 'Microsoft YaHei';
+    }
+
+    p {
+        font-size: 4.5vw;
+    }
+</style>
+
+<body>
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area"
+        ><i class="weui-icon-success weui-icon_msg"></i>
+    </div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">购买完成</h2>
+            <p class="weui-msg__desc">您可以在个人中心我的订单中查看，或者返回后买页面点击上方的视频播放观看视频</p>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="{:url('/home/business/order/index')}" class="weui-btn weui-btn_primary">查看订单</a>
+                <a href="{:url('/home/subject/subject', ['subid' => $subid])}" class="weui-btn weui-btn_default">返回购买页</a>
+            </p>
+        </div>
+    </div>
+</body>

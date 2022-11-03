@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*通用*/
+body{ width:100%; height:100%; background-color:#f9f9f9;}
+html{ width:100%; height:100%; background-color:#f9f9f9;}
+.phone{ font-family:"Droid Sans Fallback",Rotobo,"冬青黑和华文黑体",HelveticaNeue; font-size:14px; font-weight:normal; outline:none;line-height:normal}
+img{ display:block;}
+.clearfix{ clear:both}
+.margin{ margin-top:10px; width:100%; height:1px;}
+
+/*column输入栏、选择栏等*/
+.column_box{ height:46px; line-height:46px; background-color:#fff; padding-left:4%; padding-right:4%; position:relative}
+.column_img{ float:left; margin-top:14px;}
+.column_img img{ width:18px; height:auto}
+.column_box p{ line-height:46px; color:#65646b; font-size:14px; float:left; margin-left:12px;}
+.column_box input{ height:46px; color:#191919; font-size:14px; float:left; margin-left:12px; width:80%;}
+.next{ float:right; margin-top:16px;}
+.next img{ width:9px; height:auto}
+
+/*confirm底部确认按钮*/
+.confirm_box{ width:100%; height:61px;position:fixed; left:0;  line-height:61px; text-align:center; font-size:16px; color:#65646b;}
+.confirm{ background-color:#999; color:white; border-radius:3px; width:92%; height:43px; line-height:43px; text-align:center; font-size:19px; margin-left:4%;margin-top:14px;}
+
+/*边框*/
+.border_top{background-image:-webkit-linear-gradient(top,#d3d3d3 33.3%,transparent 66.7%);background-size: 100% 1px;background-repeat: no-repeat;background-position:top; position:absolute; height:1px; width:100%; left:0; top:0;}
+.border_bottom{background-image:-webkit-linear-gradient(bottom,#d3d3d3 33.3%,transparent 66.7%);background-size: 100% 1px;background-repeat: no-repeat;background-position:bottom; position:absolute; height:1px; width:100%; left:0; bottom:0;}
+.border_left{background-image:-webkit-linear-gradient(left,#d3d3d3 33.3%,transparent 66.7%);background-size: 1px 100%;background-repeat: no-repeat;background-position:left; position:absolute; width:1px; height:100%; left:0; top:0}
+.border_right{background-image:-webkit-linear-gradient(right,#d3d3d3 33.3%,transparent 66.7%);background-size: 1px 100%;background-repeat: no-repeat;background-position:right; position:absolute; width:1px; height:100%; right:0; top:0}
+
+/*免责声明、服务标准*/
+.black{ width:100%; height:100%; background-color:black; opacity:0.7; position:fixed; left:0; top:0; z-index:1000;}
+.statement,.standard,.cancel_box{ width:80%; height:90%; position:fixed; left:10%; bottom:5%; background-color:#fff; z-index:1500;}
+.statement_header,.standard_header,.cancel_head{ height:42px; line-height:42px; position:relative; color:#191919; font-size:16px; text-align:center}
+.standard{overflow:auto}
+.standard_header{}
+.close{ position:absolute; top:15px; right:15px; width:10px; height:auto}
+.statement_text,.standard_text{ padding-left:14px; padding-right:14px; margin-top:10px; box-sizing:border-box}
+.statement_text h1,.standard_text h1{ font-size:14px; line-height:18px; color:#01aff0;}
+.standard_text h2{ font-size:15px; width:100%; height:26px; position:relative}
+.statement_text p,.standard_text p{ font-size:12px; line-height:15px; color:#65646b;}
+
+/*leather皮具座数、地板打蜡、窗户清洁*/
+.leather{ height:60px; background-color:#fff;position:relative;}
+.leather_text{ float:left; margin-left:4%;}
+.leather h1{color:#191919; font-size:14px; line-height:21px; margin-top:10px;}
+.leather h2{color:#c40000; font-size:12px; line-height:19px;}
+.leather input{ width:56%; height:33px; border:1px solid #ccc; border-radius:3px;color:#01aff0; font-size:14px; float:right; margin-right:4%; margin-top:13px; padding-left:13px; box-sizing:border-box}
+.unit{ font-size:14px; color:#191919; position:absolute; top:13px; right:6%; line-height:33px;}
+/*service_cost服务费用*/
+.service_cost{ font-size:12px; color:#65646b; text-align:center; padding-top:30px;}
+.service_cost span{ font-size:33px; color:#c40000}
+/*service_illustrate服务说明*/
+.service_illustrate{ height:147px; line-height:147px; text-align:center; color:#4d4d4d; position:relative; margin-top:14px; background-color:#fff;}
+
+/*阿姨信息*/
+.waiter_box{ height:74px; background-color:#fff; position:relative}
+.waiter_img{ height:46px; width:46px; border:1px solid #d3d3d3; float:left; margin-left:4%; margin-top:14px; border-radius:50%; overflow:hidden; box-sizing:border-box}
+.waiter_img img{ height:46px; width:46px;}
+.waiter{ float:left; margin-left:13px; margin-top:10px;}
+.waiter h1{ line-height:19px; font-size:14px; color:#191919;}
+.waiter h2{ line-height:17px; font-size:12px; color:#65646b; position:relative}
+.waiter p{ line-height:17px; font-size:12px; color:#65646b;}
+.waiter_id{ line-height:40px; color:#65646b; font-size:12px; position:absolute; right:4%; top:0;}
+.collect{ width:32px; height:32px; position:absolute;bottom:11px; right:4%;}
+.collect img{ width:32px; height:auto;}
+.star_box{ margin-top:6px; float:left}
+.star_box img{ float:left; margin-left:4px; width:16px; height:auto}

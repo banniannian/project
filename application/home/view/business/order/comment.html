@@ -1,0 +1,129 @@
+<link href="/assets/home/css/WeUI/weui.min.css" rel="stylesheet" />
+<!-- <link href="/assets/home/css/RatingStars/htmleaf-demo.css" rel="stylesheet" /> -->
+
+<style>
+  body {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    font-family: 'Microsoft YaHei';
+  }
+
+  p {
+    font-size: 4.5vw;
+  }
+
+  /* 评分 */
+  a {
+    color: #f1c40f;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    color: #dab10d;
+  }
+
+  .rating-stars {
+    width: 100%;
+    text-align: center;
+  }
+
+  .rating-stars .rating-stars-container {
+    font-size: 0px;
+  }
+
+  .rating-stars .rating-stars-container .rating-star {
+    display: inline-block;
+    font-size: 32px;
+    color: #555555;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+
+  .rating-stars .rating-stars-container .rating-star.is--active,
+  .rating-stars .rating-stars-container .rating-star.is--hover {
+    color: #f1c40f;
+  }
+
+  .rating-stars .rating-stars-container .rating-star.is--no-hover {
+    color: #555555;
+  }
+
+  .weui-cells__title {
+    margin-top: -2.33em;
+  }
+</style>
+
+<body>
+    <!-- 导航栏 -->
+    <header class="mui-bar mui-bar-nav" style="position: sticky;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: gray;" href="{:url('/home/business/order/index')}"></a>
+        <h1 class="mui-title">提交评论</h1>
+    </header>
+
+    <!-- 封面图片 -->
+    <img src="{$order.subject.thumbs_text}" style="width:100%;">
+
+    <div class="weui-cells__title" style="background-color: #FFF;">{$order.subject.title}</div>
+
+    <form method="post">
+      <!-- 评分 -->
+      <div class="rating-stars block" id="another-rating">
+        <!-- 默认星级 -->
+        <input type="number" readonly="readonly" class="form-control rating-value" name="another-rating-stars-value" id="another-rating-stars-value"
+        value="{$order.rate}" style="display:none;">
+
+        <!-- 星级部分 -->
+        <div class="rating-stars-container">
+            <div class="rating-star">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="rating-star">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="rating-star">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="rating-star">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="rating-star">
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+      </div>
+
+      <!-- 输入框 -->
+      <div class="weui-cells weui-cells_form">
+          <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <!-- 判断是否有评论内容(有就不能写，没有就可以写) -->
+                {if condition="$order.comment"}
+                  <textarea disabled name="comment" class="weui-textarea" placeholder="请输入内容" rows="3" required>{$order.comment}</textarea>
+                {else /}
+                  <textarea name="comment" class="weui-textarea" placeholder="请输入内容" rows="3" required></textarea>
+                {/if}
+                <div class="weui-textarea-counter"><span>0</span>/200</div>
+              </div>
+          </div>
+      </div>
+
+      <!-- 提交评论 -->
+      {if condition="!$order.comment"}
+        <a class="weui-btn-area">
+            <button type="submit" class="weui-btn weui-btn_primary">立即提交</button>
+        </a>
+      {/if}
+    </form>
+    <br/>
+    <br/>
+
+    {include file="common/footer" /}
+<script>
+  $(".rating-stars").ratingStars();
+  $(".rating-stars").on("ratingOnEnter", function (ev, data) {
+      // dome something
+  });
+</script>
+</body>

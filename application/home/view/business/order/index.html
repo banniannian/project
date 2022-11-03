@@ -1,0 +1,172 @@
+<link href="/assets/home/css/WeUI/weui.min.css" rel="stylesheet" />
+<style>
+    body {
+        min-width: 320px;
+        max-width: 750px;
+        margin: 0 auto;
+        font-family: 'Microsoft YaHei';
+    }
+
+    p {
+        font-size: 4.5vw;
+    }
+
+    .user {
+        padding: 30px;
+    }
+
+    .uPic {
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 170px;
+        max-height: 170px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .top_img {
+        min-width: 355px;
+    }
+
+    .uBalance {
+        font-size: 2em;
+    }
+</style>
+
+<body>
+    <header class="mui-bar mui-bar-nav" style="position: sticky;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: gray;" href="./personal-center.html"></a>
+        <h1 class="mui-title">我的课程</h1>
+    </header>
+
+    <div class="top_div">
+        <img src="/assets/home/images/bac.jpg" class="top_img">
+        <div class="userInfo">
+            <a href="javascript:;">
+                <img class="uPic" src="{$LoginAuth.avatar_text}" />
+                <br />
+            </a>
+
+            <span class="uBalance" style="color: rgb(74, 70, 66); margin-top: 5px; display: inline-block;">
+                {if condition="$LoginAuth.nickname"}
+                    {$LoginAuth.nickname}
+                {else /}
+                    {$LoginAuth.mobile_text}
+                {/if}
+            </span>
+        </div>
+    </div>
+
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <div class="weui-navbar">
+                <div class="weui-navbar__item weui-bar__item_on">
+                    视频购买记录
+                </div>
+                <div class="weui-navbar__item">
+                    会员购买记录
+                </div>
+            </div>
+            <div class="weui-tab__panel" id="orderlist">
+                <div>
+                {if condition="$orderlist"}
+                  {foreach $orderlist as $item}
+
+                    <div class="weui-form-preview">
+                        <div class="weui-form-preview__hd">
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">订单金额</label>
+                                <em class="weui-form-preview__value">¥{$item.total}</em>
+                            </div>
+                        </div>
+                        <div class="weui-form-preview__bd">
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">课程名称</label>
+                                <span class="weui-form-preview__value">{$item.subject.title}</span>
+                            </div>
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">购买时间</label>
+                                <span class="weui-form-preview__value">{$item.createtime|date="Y-m-d H:i", ###}</span>
+                            </div>
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">课程简介</label>
+                                <span class="weui-form-preview__value">{$item.subject.content}</span>
+                            </div>
+                        </div>
+                        <div class="weui-form-preview__ft">
+                            <a class="weui-form-preview__btn weui-form-preview__btn_default" href="{:url('/home/business/order/comment', ['orderid' => $item['id']])}">评价</a>
+                            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="{:url('/home/subject/subject', ['subid' => $item['subid']])}">立即查看</a>
+                        </div>
+                    </div>
+                    <br />
+                    {/foreach}
+                  {else /}
+                    <div class="nomore">
+                      没有更多内容了
+                    </div>
+                {/if}
+                </div>
+                <br/>
+                <br/>
+
+                
+                <div style="display:none;">
+                  {if condition="$recordlist"}
+                      {foreach $recordlist as $item}
+                          <div class="weui-form-preview">
+                              <div class="weui-form-preview__hd">
+                                  <div class="weui-form-preview__item">
+                                      <label class="weui-form-preview__label">消费金额</label>
+                                      <em class="weui-form-preview__value">¥{$item.total}</em>
+                                  </div>
+                              </div>
+                              <div class="weui-form-preview__bd">
+                                  <div class="weui-form-preview__item">
+                                      <label class="weui-form-preview__label">消费明细</label>
+                                      <span class="weui-form-preview__value">{$item.content}</span>
+                                  </div>
+                                  <div class="weui-form-preview__item">
+                                      <label class="weui-form-preview__label">购买时间</label>
+                                      <!-- ### 代表是前面的createtime -->
+                                      <span class="weui-form-preview__value">{$item.createtime|date="Y-m-d H:i", ###}</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <br />
+                      {/foreach}
+                  {else /}
+                  <div class="nomore">
+                      没有更多数据了
+                  </div>
+                  {/if}
+              </div>
+            </div>
+        </div>
+    </div>
+
+    {include file="common/footer" /}
+</body>
+
+<script>
+    $(function () {
+        $('.weui-navbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on')
+
+            //获取点击的下标
+            var index = $(this).index()
+            console.log(index)
+
+            $("#orderlist > div").eq(index).show().siblings().hide()
+
+            
+
+            // if ($('#o2').is(":hidden")) {
+            //     $('#o2').show();
+            //     $('#o1').hide();
+            // } else {
+            //     $('#o2').hide();
+            //     $('#o1').show();
+            // }
+        });
+    });
+</script>

@@ -1,0 +1,43 @@
+<nav id="footer_list" class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item" href="{:url('/home/index/index')}">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="{:url('/home/subject/search')}">
+        <span class="mui-icon mui-icon-search"></span>
+        <span class="mui-tab-label">搜索</span>
+    </a>
+    <a class="mui-tab-item" href="{:url('/home/business/business/index')}">
+        <span class="mui-icon mui-icon-contact"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+<script>
+    // 因为默认底部导航栏是不允许跳转，所以利用mui进行链接跳转
+    // tap是触摸事件, 给a标签绑定
+    mui('#footer_list').on('tap', 'a', function() {
+        location.href = this.href
+    })
+
+    // 获取链接, 判断是哪个链接要有action的选中激活状态
+    var arr = location.pathname.split('/');
+    // 使用过滤的方式将链接中指定字段进行拿取
+    var path = arr.filter(function(value) {
+        return value && value.trim();
+    })
+
+    // 对数组进行截取
+    var str = path.slice(0, 2).join('/');
+
+    // 判断str中的截取后的链接是否正确
+    if(str == "home/index") { // 首页
+        // 给第一个a标签加选中状态，其它兄弟移除选中状态
+        $("#footer_list a").eq(0).addClass('mui-action').siblings().removeClass('mui-action');
+    } else if(str == "home/subject") {
+        $("#footer_list a").eq(1).addClass('mui-action').siblings().removeClass('mui-action');
+    } else if(str == "home/business") {
+        $("#footer_list a").eq(2).addClass('mui-action').siblings().removeClass('mui-action');
+    }
+
+</script>

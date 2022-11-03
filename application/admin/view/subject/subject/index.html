@@ -1,0 +1,29 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <!-- check用于检查是否有权限显示按钮 -->
+                        <!-- 刷新页面 -->
+                        {:build_toolbar('refresh,add,edit,del')}
+
+                        <!-- 回收站按钮 -->
+                        <a href="{:url('subject/subject/recyclebin')}" class="btn btn-success btn-dialog btn-recyclebin {:$auth->check('subject/subject/recyclebin')?'':'hide'}" title="{:__('Recycle bin')}" ><i class="fa fa-history"></i> {:__('Recycle bin')}</a>
+
+
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover table-nowrap"
+                           data-operate-edit="{:$auth->check('subject/subject/edit')}"
+                           data-operate-del="{:$auth->check('subject/subject/del')}"
+                           data-operate-lists="{:$auth->check('subject/lists/index')}"
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

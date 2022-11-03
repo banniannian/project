@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {include file='common/meta'}
+    <link rel="stylesheet" href="/assets/home/css/profile.css">
+    <style>
+        body {
+            min-width: 320px;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .form .item {
+            padding: 13px 0;
+        }
+        
+        .user {
+            padding: 30px;
+        }
+
+        .uPic {
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 170px;
+            max-height: 170px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .top_img {
+            min-width: 355px;
+        }
+
+        .uBalance {
+            font-size: 2em;
+        }
+    </style>
+
+    <!-- 引入城市插件 -->
+    <link rel="stylesheet" href="/assets/home/city/css/city-picker.css" />
+    <script src="/assets/home/city/js/city-picker.data.min.js"></script>
+    <script src="/assets/home/city/js/city-picker.min.js"></script> 
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav" style="position: sticky;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: gray;" href="./personal-center.html"></a>
+        <h1 class="mui-title">我的资料</h1>
+    </header>
+
+    <div class="top_div">
+        <img src="/assets/home/images/bac.jpg" class="top_img">
+        <div class="userInfo">
+            <a href="javascript:;" style="margin-bottom: 5px; display: block;">
+                <!-- 默认为默认头像 -->
+                <img class="uPic" src="{$LoginAuth.avatar_text}" />
+                <br/>
+            </a>
+            
+            <!-- <p class="uBalance" style="color: rgb(74, 70, 66); ">{$LoginAuth.mobile}</p> -->
+            <p class="uBalance" style="color: rgb(74, 70, 66); ">
+                <!-- 有昵称就显示昵称，没有就显示手机号 --> 
+                {if condition="$LoginAuth.nickname"}
+                    {$LoginAuth.nickname}
+                {else /}
+                    {$LoginAuth.mobile_text}
+                {/if}
+            </p>
+        </div>
+    </div>
+
+    <div class="form">
+        <form method="post" enctype="multipart/form-data">
+            <div class="item">
+                <div class="title" style="text-align: left;">手机号: </div>
+                <input type="text" value="{$LoginAuth.mobile}" disabled/>
+            </div>
+
+            <div class="item">
+                <div class="title" style="text-align: left;">昵称: </div>
+                <input type="text" name="nickname" placeholder="请输入昵称" required value="{$LoginAuth.nickname}">
+            </div>
+
+            <div class="item" >
+                <div class="title" style="text-align: left;">密码: </div>
+                <input type="password" name="password" placeholder="为空不修改密码">
+            </div>
+
+            <div class="item">
+                <div class="title" style="text-align: left;">性别：</div>
+                <select name="gender">
+                    <option {$LoginAuth.gender == 0 ? 'selected' : ''} value="0">保密</option>
+                    <option {$LoginAuth.gender == 1 ? 'selected' : ''} value="1">男</option>
+                    <option {$LoginAuth.gender == 2 ? 'selected' : ''} value="2">女</option>
+                </select>
+            </div>
+
+            <div class="item">
+                <div class="title" style="text-align: left;">邀请码: </div>
+                <input type="text" value="{$LoginAuth.invitecode}" disabled/>
+            </div>
+
+            <div class="item" style="position:relative;">
+                <div class="title" style="text-align: left;">地区：</div>
+                <input id="city" type="text" name="region" readonly data-toggle="city-picker" size="100" />
+            </div>
+
+            <div class="item">
+                <div class="title" style="text-align: left;">头像：</div>
+
+                <input type="file" id="file" name="avatar" style="display:none" />
+
+                <img style="width:100px;height:100px;" src="{$LoginAuth.avatar_text}" onclick="file.click()" />
+            </div>
+
+            <input type="submit" value="修改资料" style="background-color: #674c3b; color: white;">
+        </form>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+
+    {include file="common/footer"}
+    
+    <!-- 将存到数据库中的地区取出放到页面 -->
+    <script>
+        $("#city").citypicker({
+            province: '{$LoginAuth.province_text}',
+            city: '{$LoginAuth.city_text}',
+            district: '{$LoginAuth.district_text}',
+        })
+    </script>
+</body>
+
+
+</html>

@@ -160,10 +160,7 @@
         <section >
             <h2 class="title" >联系方式</h2>
             <section>
-                <h3>市场销售&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:185-1242-1111" style="color: green;">185-1242-1111</a></h3>
-                <h3>技术支持&nbsp;&nbsp;&nbsp;&nbsp;<a href="139-1234-5678" style="color: green;">139-1234-5678</a></h3>
-                <h3>市场销售&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:178-1422-3211" style="color: green;">178-1422-3211</a></h3>
-                <h3>市场销售&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:152-2233-6555" style="color: green;">152-2233-6555</a></h3>
+                <h3>技术支持&nbsp;&nbsp;&nbsp;&nbsp;<a href="159-1888-8888" style="color: green;">159-1888-8888</a></h3>
             </section>
             <h2 class="title">地址</h2>
             <section>
@@ -177,6 +174,10 @@
             </div>
         </section>
     </article>
+    <br/>
+    <br/>
+    <br/>
+    
 </body>
 {include file="common/footer"}
 
@@ -194,7 +195,9 @@
   // swiper
   var swiper = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
-    paginationClickable: true
+    // paginationClickable: true,
+    autoplay : 3000,
+    autoplayDisableOnInteraction : false,
   });
 
   var map = new BMapGL.Map('container'); // 创建Map实例
@@ -207,7 +210,12 @@
     // 控件基于停靠位置的偏移量（可选）
     offset: new BMapGL.Size(10, 5)
   });
-
   // 将控件添加到地图上
   map.addControl(cityControl);
+
+  var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
+  map.addControl(scaleCtrl);
+  var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
+  map.addControl(zoomCtrl);
+
 </script>

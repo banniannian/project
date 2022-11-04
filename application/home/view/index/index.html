@@ -178,18 +178,19 @@
 
 <!-- 自动轮播控件 -->
 <script>
-  var slider = mui("#slider");
-  mui.init({
-      swipeBack: true //启用右滑关闭功能
-  });
-  slider.slider({
-      interval: 2000
-  });
-
-
+//   var slider = mui("#slider");
+//   mui.init({
+//       swipeBack: true //启用右滑关闭功能
+//   });
+//   slider.slider({
+//       interval: 2000
+//   });
+  
   var swiper = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
-    paginationClickable: true
+    // paginationClickable: true
+    autoplay : 3000,
+    autoplayDisableOnInteraction : false,
   });
 </script>
 </body>

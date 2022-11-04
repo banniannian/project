@@ -70,7 +70,7 @@ class Business extends Home {
             if(!empty($region)) {
                 // 1、将广东省/广州市/海珠区字符串转为数组，将/移除
                 $RegionList = explode('/', $region);
-                
+
                 // 2、每次移除数组中最后一个数据
                 // 2-2、转换为数组, 每次获取最后一位(可以确保用户没有选择三个地区的情况下一直拿到正确的地区数据)
                 $last = array_pop($RegionList);
